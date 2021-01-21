@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
+    <style>
+    html {
+        scroll-behavior: smooth;
+    }
     
+    #picture {
+        height: 600px;
+        background-color: #17ff5d;
+    }
+    
+    #news {
+        height: 600px;
+        background-color: #ff8181;
+    }
+
+    #samples {
+        height: 600px;
+        background-color: #646464;
+    }
+</style>
+</head>
+
+<body>
+
+    <h1>Smooth Scroll</h1>
+
+    <div class="main" id="picture">
+        <h2>Picture</h2>
+        <a href="#news">Click Me to Smooth Scroll to Section 2 Below</a>
+    </div>
+
+    <div class="main" id="news">
+        <h2>News</h2>
+        <a href="#picture">Click Me to Smooth Scroll to Section 1 Above</a>
+    </div>
+
+    <div class="main" id="samples">
+        <h2>Samples</h2>
+        <a href="#picture">Click Me to Smooth Scroll to Section 1 Above</a>
+    </div>
+
 </body>
+
+</html>
+
+<body>
+
+</body>
+
 </html>
