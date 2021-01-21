@@ -24,6 +24,9 @@ body {
   #navbar {
     overflow: hidden;
     background-color: #333;
+    position: fixed; 
+    top: 0; 
+    left: 0;
   }
   
   #navbar a {
@@ -31,10 +34,15 @@ body {
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 16px 18px;
     text-decoration: none;
     font-size: 17px;
   }
+
+  #navbar a img {
+    height: 50px;
+    width: 50px;
+}
   
   #navbar a:hover {
     background-color: #ddd;
@@ -65,13 +73,12 @@ body {
     scroll-behavior: smooth;
 }
 
-#picture {
+#home {
     height: 600px;
-    background-color: #23252583;
     color:rgb(0, 0, 0);
 }
 
-#picture>a {
+#home>a {
     color:rgb(0, 0, 0);
 }
 
