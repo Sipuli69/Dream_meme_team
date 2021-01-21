@@ -35,6 +35,11 @@ body {
     text-decoration: none;
     font-size: 17px;
   }
+
+  #navbar a img {
+      height: 50px;
+      width: 50px;
+  }
   
   #navbar a:hover {
     background-color: #ddd;
