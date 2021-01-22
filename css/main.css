@@ -88,7 +88,7 @@ body {
   }
 
   #pic {
-    height: 600px;
+    height: 350px;
 
   }
 
@@ -100,25 +100,28 @@ body {
   }
 
   #contact {
-    height: 1000px;
+    height: 700px;
     background-color: #0c0c0cd5;
     color: rgb(236, 233, 219);
     text-align: center;
     font-size: 16px;
   }
 
-  h2 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 100px;
-    color: orangered;
-    text-align: center;
+  #tour > h2 {
+    font-size: 50px;
+    color: rgb(212, 205, 203);
+  }
+    #tour {
+      height: 600px;
+      background-color: #0c0c0cd5;
+      color: rgb(236, 233, 219);
   }
 
   .ticket_button {
     border: none;
     color: rgb(56, 51, 51);
     background-color: rgb(192, 185, 176);
-    padding: 10px 24px;
+    padding: 7px 18px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -129,6 +132,7 @@ body {
     font-weight: bold;
   }
   table {
-    color: rgb(168, 18, 18);
+    color: rgb(204, 191, 191);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
   }
