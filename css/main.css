@@ -48,36 +48,45 @@ body {
     background-color: #ddd;
     color: black;
   }
+
   #navbar a.active {
     background-color: #23465ea9;
     color: white;
   }
+
   .content {
     padding: 16px;
   }
+
   html {
     scroll-behavior: smooth;
   }
+
   #home {
     height: 600px;
     color: rgb(0, 0, 0);
   }
+
   #home>a {
     color: rgb(0, 0, 0);
   }
+
   #news {
     height: 600px;
     background-color: #0c0c0cd5;
     color: rgb(236, 233, 219);
   }
+
   #news>a {
     color: rgb(236, 233, 219);
   }
+
   #samples {
     height: 600px;
     background-color: #413e3e4f;
     color: rgb(0, 0, 0);
   }
+  
   #samples>a {
     color: rgb(0, 0, 0);
   }
