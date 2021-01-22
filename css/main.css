@@ -2,6 +2,7 @@
   font-size: small;
   font-style: italic;
   color: rgb(43, 39, 39);
+  font-size: 16px;
 }
 
 .main>h1 {
@@ -87,7 +88,23 @@ body {
     color: rgb(0, 0, 0);
   }
 
+  #pic {
+    height: 600px;
+
+  }
+
   #bio {
+    height: 1000px;
+    background-color: #0c0c0cd5;
+    color: rgb(236, 233, 219);
+    text-align: center;
+  }
+
+  #bio h1 {
+    color: #f1f1f1;
+  }
+
+  #contact {
     height: 1000px;
     background-color: #0c0c0cd5;
     color: rgb(236, 233, 219);
