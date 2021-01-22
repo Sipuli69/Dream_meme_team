@@ -52,17 +52,7 @@ body {
     background-color: #23465ea9;
     color: white;
   }
-  .content {
-    padding: 16px;
-  }
-  .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-  .sticky+.content {
-    padding-top: 60px;
-  }
+
   html {
     scroll-behavior: smooth;
   }
