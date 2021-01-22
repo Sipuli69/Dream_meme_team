@@ -86,3 +86,11 @@ body {
   #samples>a {
     color: rgb(0, 0, 0);
   }
+
+  #bio {
+    height: 1000px;
+    background-color: #0c0c0cd5;
+    color: rgb(236, 233, 219);
+    text-align: center;
+    font-size: 16px;
+  }
