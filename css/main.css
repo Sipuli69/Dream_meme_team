@@ -54,10 +54,6 @@ body {
     color: white;
   }
 
-  .content {
-    padding: 16px;
-  }
-
   html {
     scroll-behavior: smooth;
   }
