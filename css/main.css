@@ -60,32 +60,39 @@ html {
 
 #home {
   height: 600px;
-  color: rgb(0, 0, 0);
-}
-
-#home>a {
-  color: rgb(0, 0, 0);
 }
 
 #news {
   height: 600px;
   background-color: #0c0c0cd5;
-  color: rgb(236, 233, 219);
+  color: rgb(204, 191, 191);
   text-align: center;
 }
 
 #news>a {
-  color: rgb(236, 233, 219);
+  color: rgb(204, 191, 191);
 }
 
 #samples {
+  padding-top: 50px;
+  margin-top: 10px;
   height: 600px;
-  background-color: #413e3e4f;
-  color: rgb(0, 0, 0);
+  background-color: #0c0c0cd5;
+  color: rgb(204, 191, 191);
+  text-align: center;
 }
 
-#samples>a {
-  color: rgb(0, 0, 0);
+#samples img {
+  max-width: 40%;
+  padding-left: 100px;
+  padding-top: 50px;
+  float: left;
+}
+
+#song_1 {
+  padding-left: 550px;
+  padding-top: 180px;
+  text-align: left;
 }
 
 #pic {
@@ -95,27 +102,27 @@ html {
 #bio {
   height: 800px;
   background-color: #0c0c0cd5;
-  color: rgb(236, 233, 219);
+  color: rgb(204, 191, 191);
   text-align: center;
 }
 
 #contact {
   height: 700px;
   background-color: #0c0c0cd5;
-  color: rgb(236, 233, 219);
+  color: rgb(204, 191, 191);
   text-align: center;
   font-size: 16px;
 }
 
 #tour h2 {
   font-size: 50px;
-  color: rgb(212, 205, 203);
+  color: rgb(204, 191, 191);
 }
 
 #tour {
   min-height: 200px;
   background-color: #0c0c0cd5;
-  color: rgb(236, 233, 219);
+  color: rgb(204, 191, 191);
   text-align: center;
   padding-bottom: 25px;
 }
@@ -153,6 +160,55 @@ table, tr {
 /* v TÄHÄN PUHELIN JUTUT v */
 
 @media screen and (max-width: 800px) {
+  #home {
+    height: 40vh;
+  }
+  #news {
+    background-color: #1d1d1d;
+  }
+  #samples {
+    padding-top: 50px;
+    margin-top: 0;
+    min-height: 700px;
+    background-color: #1d1d1d;
+    color: rgb(204, 191, 191);
+    text-align: center;
+  }
+  #samples>img {
+    padding-left: 0;
+    min-width: 90vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #song_1 {
+    padding-left: 0;
+    padding-top: 380px;
+    text-align: center;
+  }
+  #home>img {
+    position: relative;
+    left: -25% !important;
+    height: 50vh;
+    max-width: none !important;
+  }
+  #bio {
+    height: 1200px;
+    background-color: #1d1d1d;
+  }
+  #pic>img {
+    position: relative;
+    left: -50% !important;
+    height: 50vh;
+    max-width: none !important;
+  }
+  #contact {
+    height: 800px;
+    background-color: #1d1d1d;
+  }
+  #tour {
+    background-color: #1d1d1d;
+  }
   #tour, table {
     font-size: 12px;
   }
