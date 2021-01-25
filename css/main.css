@@ -75,14 +75,17 @@ html {
 
 #samples {
   padding-top: 50px;
+  margin-top: 10px;
   height: 600px;
-  background-color: #413e3e4f;
-  color: rgb(0, 0, 0);
+  background-color: #0c0c0cd5;
+  color: rgb(204, 191, 191);
   text-align: center;
 }
 
-#samples>a {
-  color: rgb(0, 0, 0);
+#song_1 {
+  padding-left: 550px;
+  padding-top: 180px;
+  text-align: left;
 }
 
 #pic {
