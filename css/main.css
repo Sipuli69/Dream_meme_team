@@ -107,7 +107,7 @@ html {
   font-size: 16px;
 }
 
-#tour>h2 {
+#tour h2 {
   font-size: 50px;
   color: rgb(212, 205, 203);
 }
@@ -148,4 +148,30 @@ table {
 
 table, tr {
   border: 2px solid black;
+}
+
+/* v TÄHÄN PUHELIN JUTUT v */
+
+@media screen and (max-width: 800px) {
+  #tour, table {
+    font-size: 12px;
+  }
+  #tour .ticket_button {
+    border: none;
+    color: rgb(56, 51, 51);
+    background-color: rgb(192, 185, 176);
+    padding: 2px 5px;
+    text-align: center;
+    display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    margin: 2px 1px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  #tour .ticket_button:disabled {
+    color: rgb(133, 133, 133);
+    background-color: rgb(221, 221, 221);
+    cursor: default;
+  }
 }
