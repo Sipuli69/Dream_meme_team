@@ -60,28 +60,25 @@ html {
 
 #home {
   height: 600px;
-  color: rgb(0, 0, 0);
-}
-
-#home>a {
-  color: rgb(0, 0, 0);
 }
 
 #news {
   height: 600px;
   background-color: #0c0c0cd5;
-  color: rgb(236, 233, 219);
+  color: rgb(204, 191, 191);
   text-align: center;
 }
 
 #news>a {
-  color: rgb(236, 233, 219);
+  color: rgb(204, 191, 191);
 }
 
 #samples {
+  padding-top: 50px;
   height: 600px;
   background-color: #413e3e4f;
   color: rgb(0, 0, 0);
+  text-align: center;
 }
 
 #samples>a {
@@ -95,27 +92,27 @@ html {
 #bio {
   height: 800px;
   background-color: #0c0c0cd5;
-  color: rgb(236, 233, 219);
+  color: rgb(204, 191, 191);
   text-align: center;
 }
 
 #contact {
   height: 700px;
   background-color: #0c0c0cd5;
-  color: rgb(236, 233, 219);
+  color: rgb(204, 191, 191);
   text-align: center;
   font-size: 16px;
 }
 
 #tour h2 {
   font-size: 50px;
-  color: rgb(212, 205, 203);
+  color: rgb(204, 191, 191);
 }
 
 #tour {
   min-height: 200px;
   background-color: #0c0c0cd5;
-  color: rgb(236, 233, 219);
+  color: rgb(204, 191, 191);
   text-align: center;
   padding-bottom: 25px;
 }
@@ -153,12 +150,46 @@ table, tr {
 /* v TÄHÄN PUHELIN JUTUT v */
 
 @media screen and (max-width: 800px) {
+
+  #home {
+    height: 40vh;
+  }
+
+  #news {
+    background-color: #1d1d1d;
+  }
+
+  #samples {
+    background-color: #413e3e;
+    color: rgb(204, 191, 191);
+  }
+
+  #home > img {
+    position: relative;
+    left: -25% !important;
+    height: 50vh;
+    max-width: none !important;
+  }
+
   #bio {
     height: 1200px;
+    background-color: #1d1d1d;
   }
+
+  #pic > img {
+    position: relative;
+    left: -50% !important;
+    height: 50vh;
+    max-width: none !important;
+    }
 
   #contact {
     height: 800px;
+    background-color: #1d1d1d;
+  }
+
+  #tour {
+    background-color: #1d1d1d;
   }
 
   #tour, table {
