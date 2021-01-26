@@ -97,22 +97,24 @@ html {
 #samples {
   padding-top: 50px;
   margin-top: 10px;
-  height: 600px;
+  height: 800px;
   background-color: #0c0c0cd5;
   color: rgb(204, 191, 191);
   text-align: center;
 }
 
 #samples img {
-  max-width: 40%;
-  padding-left: 100px;
+  padding-left: 50px;
+  padding-right: 30px;
   padding-top: 50px;
   float: left;
+  height: 65%;
+  max-width: 65%;
 }
 
 #song_1 {
-  padding-left: 550px;
-  padding-top: 180px;
+  padding-left: auto;
+  padding-top: 200px;
   text-align: left;
 }
 
