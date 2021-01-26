@@ -21,6 +21,13 @@ body {
   text-align: center;
 }
 
+.row>p {
+  font-size: small;
+  text-align: center;
+  color:rgb(245, 244, 239);
+  margin-top: 10px;
+}
+
 #navbar {
   overflow: hidden;
   background-color: #333;
