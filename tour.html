@@ -1,55 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tour</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-<link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
 </head>
-<body>
+
+<body id="tourpage">
     <div class="container">
         <div class="row">
             <!--Navbar:-->
             <div id="navbar">
-                <a class="navbar-brand" href="index.html"><img src="images/BOO.png" alt="blanko">
-                </a>
-                <a class="nav-link" href="index.html#home">Home</a>
-                <a href="index.html#news">News</a>
-                <a href="index.html#samples">Music</a>
-                <a class="nav-link" href="bio.html">Bio</a>
-                <a class="nav-link" href="tour.html">Tour</a>
-                <a class="nav-link" href="contact.html">Contact</a>
+                <nav class="navbar navbar-expand-sm navbar-dark">
+                    <a class="navbar-brand" href="index.html"><img src="images/BOO.png" alt="blanko"></a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#news">News</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#samples">Music</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="bio.html">Bio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="tour.html">Tour</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
             <div class="main" id="pic">
-                <img src="images/pic2.png" alt="oliveri"
-                style="max-width: 100%; position: fixed; left: 0px; z-index:-5; padding-top: 70px;">
+                <img src="images/pic4.png" alt="oliveri"
+                    style="max-width: 100%; position: fixed; left: 0px; z-index:-5; object-fit: cover;">
             </div>
 
             <div class="main" id="tour">
-                <h2 style="padding-top:100px">TOUR</h2>
+                <h2 style="padding-top:50px">TOUR</h2>
                 <br>
                 <table class="tabl" style="width:100%">
-                        <tr>
-                            <th>Lahti</th>
-                            <th>15.4.2021</th>
-                            <th><button class="ticket_button">Tickets</button></th>
-                        </tr>
-                        <tr>
-                            <th>Vantaa hoods</th>
-                            <th>27.3.2021</th>
-                            <th><button class="ticket_button">Tickets</button></th>
-                        </tr>
-                        <tr>
-                          <th>R-kioski idänpää</th>
-                          <th>24.12.2020</th>
-                          <th><button class="ticket_button" disabled>Tickets</button></th>
-                        </tr>
-                      </table>
+                    <tr>
+                        <th>15.4.2021</th>
+                        <th>Lahti, Suomi</th>
+                        <th><button class="ticket_button">Tickets</button></th>
+                    </tr>
+                    <tr>
+                        <th>27.3.2021</th>
+                        <th>Vantaa hoods, Vantaa, Suomi</th>
+                        <th><button class="ticket_button">Tickets</button></th>
+                    </tr>
+                    <tr>
+                        <th>16.2.2021</th>
+                        <th>Madison Square Garden, New York City, US</th>
+                        <th><button class="ticket_button">Tickets</button></th>
+                    </tr>
+                    <tr>
+                        <th>14.2.2021</th>
+                        <th>Rautatieaseman raiteilla, Hämeenlinna, Suomi</th>
+                        <th><button class="ticket_button">Tickets</button></th>
+                    </tr>
+                    <tr>
+                        <th>8.2.2021</th>
+                        <th>Lyseon koulun poikien vessa, Hämeenlinna, Suomi</th>
+                        <th><button class="ticket_button">Tickets</button></th>
+                    </tr>
+                    <tr>
+                        <th>2.2.2021</th>
+                        <th>Ahveniston mäkihyppytorni, Hämeenlinna, Suomi</th>
+                        <th><button class="ticket_button">Tickets</button></th>
+                    </tr>
+                    <tr>
+                        <th>30.1.2021</th>
+                        <th>World 137, Runescape</th>
+                        <th><button class="ticket_button">Tickets</button></th>
+                    </tr>
+                    <tr>
+                        <th>26.1.2021</th>
+                        <th>K-marketin takapiha (tuokaa mankka), Äänekoski, Suomi</th>
+                        <th><button class="ticket_button" disabled>Tickets</button></th>
+                    </tr>
+                    <tr>
+                        <th>22.1.2021</th>
+                        <th>Lasten leikkikenttä, Helsinki, Suomi</th>
+                        <th><button class="ticket_button" disabled>Tickets</button></th>
+                    </tr>
+                    <tr>
+                        <th>21.1.2021</th>
+                        <th>de_dust2, CS:GO</th>
+                        <th><button class="ticket_button" disabled>Tickets</button></th>
+                    </tr>
+                    <tr>
+                        <th>15.1.2021</th>
+                        <th>Turkkilaisen yrittäjäfirman 10v syntymäpäivät, Turkki</th>
+                        <th><button class="ticket_button" disabled>Tickets</button></th>
+                    </tr>
+                    <tr>
+                        <th>26.12.2020</th>
+                        <th>Kajaanin suopotkupallostadion, Kajaani, Suomi</th>
+                        <th><button class="ticket_button" disabled>Tickets</button></th>
+                    </tr>
+                    <tr>
+                        <th>24.12.2020</th>
+                        <th>R-kioski, Idänpää, Suomi</th>
+                        <th><button class="ticket_button" disabled>Tickets</button></th>
+                    </tr>
+                </table>
             </div>
         </div>
+        <div class="row">
+            <p>&copy; DreamMemeTeam</p>
+            </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

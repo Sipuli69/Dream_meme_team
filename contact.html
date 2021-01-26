@@ -15,19 +15,42 @@
         <div class="row">
             <!--Navbar:-->
             <div id="navbar">
-                <a class="navbar-brand" href="index.html"><img src="images/BOO.png" alt="blanko">
-                </a>
-                <a class="nav-link" href="index.html#home">Home</a>
-                <a href="index.html#news">News</a>
-                <a href="index.html#samples">Music</a>
-                <a class="nav-link" href="bio.html">Bio</a>
-                <a class="nav-link" href="tour.html">Tour</a>
-                <a class="nav-link" href="contact.html">Contact</a>
-            </div>
+                <nav class="navbar navbar-expand-sm navbar-dark">
+                    <a class="navbar-brand" href="index.html"><img src="images/BOO.png" alt="blanko"></a>
 
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#news">News</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html#samples">Music</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="bio.html">Bio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="tour.html">Tour</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <!--End of navbar-->
             <div class="main" id="pic">
                 <img src="images/pic3.png" alt="oliveri"
-                    style="max-width: 110%; position: fixed; left: 0px; z-index:-5;">
+                    style="max-width: 110%; position: fixed; left: 0px; z-index:-5; object-fit: cover;">
             </div>
             <div class="main" id="contact">
                 <h1 style="padding-top: 50px;">CONTACT</h1><br><br>
@@ -52,17 +75,27 @@
                 <p> Tony N<br>
                     Ansku P<br>
                     Oliver P<br><br>
+                </p>
+
                 <address>
                     Bachelor of Business Administration - Information technology<br>
 
                     Hämeen ammattikorkeakoulu HAMK
 
                     PL 230 13101 Hämeenlinna</address>
-                </p>
+
 
             </div>
         </div>
+        <div class="row">
+            <p>&copy; DreamMemeTeam</p>
+            </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
