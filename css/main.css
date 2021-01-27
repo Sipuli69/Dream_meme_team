@@ -137,11 +137,24 @@ html {
 }
 
 #contact {
-  height: 700px;
+  height: fit-content;
   background-color: #0c0c0cd5;
   color: rgb(204, 191, 191);
   text-align: center;
   font-size: 16px;
+}
+
+#hangout {
+  height: fit-content;
+  background-color: #0c0c0cd5;
+  color: rgb(204, 191, 191);
+  text-align: center;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+#hangout #fileToUpload {
+  padding-left: 40px;
 }
 
 #tour {
@@ -267,6 +280,13 @@ input[type=submit]:hover {
   #contact {
     height: fit-content;
     background-color: #1d1d1d;
+    min-width:750px;
+  }
+  #hangout {
+    margin-left: 0;
+    height: fit-content;
+    background-color: #1d1d1d;
+    min-width:750px;
   }
   #tour {
     background-color: #1d1d1d;
@@ -291,5 +311,11 @@ input[type=submit]:hover {
     color: rgb(133, 133, 133);
     background-color: rgb(221, 221, 221);
     cursor: default;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #hangout #fileToUpload {
+    padding-left: 0;
   }
 }
