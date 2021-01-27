@@ -225,6 +225,16 @@ input[type=submit]:hover {
   justify-content: center;
 }
 
+.footer {
+  color:rgb(212, 210, 208);
+  font-size: 10px;
+  text-align: center;
+}
+
+.footer>p{
+  margin-top: 15px;
+}
+
 /* v TÄHÄN PUHELIN JUTUT v */
 
 @media screen and (max-width: 800px) {
@@ -328,4 +338,12 @@ input[type=submit]:hover {
   #hangout #fileToUpload {
     padding-left: 0;
   }
+
+  .footer {
+    background-color: rgba(0, 0, 0, 0.808);
+    color:rgb(212, 210, 208);
+    font-size: 10px;
+    text-align: center;
+ }
+ 
 }
