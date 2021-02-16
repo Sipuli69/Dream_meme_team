@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body id="ticketinfo">
+    Submit your information:
+    <form method="POST" action="ticket.php">
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" value="" placeholder="Your name..." required><br>
+        <label for="add">Address:</label><br>
+        <input type="text" name="add" value="" placeholder="Your address..." required><br>
+        <label for="pnumber">Phone number:</label><br>
+        <input type="text" name="pnum" value="" placeholder="Your phone number..." required><br>
+        <br><br>
+        <input type="checkbox" id="terms" name="terms" value="terms" required>
+        <label for="terms">Agree to <a id="terms" href="https://en.wikipedia.org/wiki/Terms_of_service" target="_blank">terms and conditions</a>.</label> <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
