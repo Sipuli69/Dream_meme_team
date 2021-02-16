@@ -3,7 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Toni Nurmi, Anna-Maria Palm, Oliver Parkkonen">
+    <meta name="description"
+        content="B-O's artist site - new star and interesting lifestory. Many hit songs, tour etc. Women, bravely take contact!">
     <title>BLANKo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -99,6 +103,44 @@
                         <source src="images/Sample1.mp3" type="audio/mp3">
                         <p>Change browser you absolute buffoon.</p>
                     </audio>
+                    <p><br><small><i>Did you love the sample?</i></small></p>
+                    <div id="wrapperDiv">
+                        <!--  peukut: -->
+                        <input type="image" id="tu" src="images/tu.png" alt="Submit" width="13" heigth="20">
+                        &#160;&#160;
+                        <input type="image" id="td" src="images/td.png" alt="Submit" width="13" heigth="20">
+                    </div>
+                    <!-- Näihin alla oleviin diveihin tulee peukkujen painallusten määrät näkyviin. -->
+                    <div id="wrapperDiv">
+                        <div id='thumbu' style="font-size:12px;float:left"></div>
+                        <div id='thumbd' style="font-size:12px;float:left"></div>
+                    </div>
+                    <!-- scripti / lähetetään thumb.php:lle postina arvo peukkujen painalluksista.
+	                annetaan yläpeukulle value arvo "a-up" ja alapeukulle arvo "b-down".
+	                Näytetään painallusten määrä "thumu"- ja "thumd"-<p>.
+	                -->
+                    <script>
+                        $(document).ready(function(){
+                            $("#tu").click(function(){
+                                $.post("thumb.php",
+                                    {
+                                        value: "a-up"
+                                    },
+                                    function (data, status) {
+                                        $("#thumbu").html(data);
+                                    });
+                            });
+                            $("#td").click(function(){
+                                $.post("thumbd.php",
+                                    {
+                                        value2: "b-down"
+                                    },
+                                    function (data, status) {
+                                        $("#thumbd").html(data);
+                                    });
+                            });
+                        });
+                    </script>
                 </div>
             </div>
             <!--Footer-->
