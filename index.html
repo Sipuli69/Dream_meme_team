@@ -120,8 +120,8 @@
 	                Näytetään painallusten määrä "thumu"- ja "thumd"-<p>.
 	                -->
                     <script>
-                        $(document).ready(function () {
-                            $("#tu").click(function () {
+                        $(document).ready(function(){
+                            $("#tu").click(function(){
                                 $.post("thumb.php",
                                     {
                                         value: "a-up"
@@ -130,8 +130,7 @@
                                         $("#thumbu").html(data);
                                     });
                             });
-
-                            $("#td").click(function () {
+                            $("#td").click(function(){
                                 $.post("thumbd.php",
                                     {
                                         value2: "b-down"
@@ -140,10 +139,7 @@
                                         $("#thumbd").html(data);
                                     });
                             });
-
-
                         });
-
                     </script>
                 </div>
             </div>
