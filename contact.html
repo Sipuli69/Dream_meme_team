@@ -99,7 +99,7 @@
 
                     <h4>(Women only)</h4> <br>
 
-                    <form action="submit.php" method="POST">
+                    <form action="submit.php" method="POST" enctype="multipart/form-data">
 
                         <label for="fname">Name:</label><br>
                         <input type="text" id="fname" name="fname" placeholder="Your name..."><br>
@@ -119,16 +119,10 @@
                         <br>
                         <input type="checkbox" id="checkbox" name="checkbox" value="checkbox">
                         <label for="fun">Check me if you are awesome!</label> <br>
-                        <input type="submit" name="submit" value="Submit"><br><br>
-                    </form>
-                    
-                    <form action="upload.php" method="post" enctype="multipart/form-data" style="text-align:center;">
                         <p><small><i>Wanna upload your picture?</i></small></p>
                         <input type="file" name="filetoupload" id="filetoupload">
-                        <input type="submit" value="Upload" name="submit" style="width:20%;background-color:black;color:white;">
+                        <input type="submit" name="submit" value="Submit"><br><br>
                     </form>
-
-
 
                 </div>
                 <div class="footer">
