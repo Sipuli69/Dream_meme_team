@@ -12,8 +12,8 @@ if(isset($_POST['email']) && $_POST['email'] != ''){ // Tarkistaa että sähköp
     $subject = "Form submission";
     $subject2 = "Copy of your form submission";
 
-    $message =  "Name:". " " . $fname . "\n" . "Country:" . " " . $country . "\n" . "Phone:" . " " . $phonenumber .  "\n" . "You are awesome?:" . " " . $checkbox . "\n\n" . $_POST['message'];
-    $message2 = "Here is a copy of your message" . "\n" . "Name:". " " . $fname . "\n" . "Country:". " " . $country . "\n" . "Phone:" . " " . $phonenumber . "\n" . "You are awesome?:" . " " . $checkbox . "\n\n" . $_POST['message'];
+    $message =  "Name:". " " . $fname . "\n" . "Country:" . " " . $country . "\n" . "Phone:" . " " . $phonenumber .  "\n" . "Are you awesome?:" . " " . $checkbox . "\n\n" . $_POST['message'];
+    $message2 = "Here is a copy of your message" . "\n" . "Name:". " " . $fname . "\n" . "Country:". " " . $country . "\n" . "Phone:" . " " . $phonenumber . "\n" . "Are you awesome?:" . " " . $checkbox . "\n\n" . $_POST['message'];
 
     $headers = "From:" . $from;
     $headers2 = "From:" . $to;
