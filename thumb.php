@@ -1,7 +1,7 @@
 <?php
 // session alku:
 session_start();
-
+setcookie(time()+3600);
  
 $yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
 if (!$yhteys) {
