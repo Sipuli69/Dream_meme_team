@@ -14,10 +14,6 @@ while ($resultd=mysqli_fetch_array($downv))
 echo $resultd['countd'];
 }
 
-// session alku:
-session_start();
-
-
 // tallennetaan valuet (b-down painallukset) $value2:een.
 $value2=$_POST["value2"];
 
