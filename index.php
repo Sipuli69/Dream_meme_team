@@ -31,13 +31,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html#home">Home</a>
+                                <a class="nav-link" href="index.php#home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html#news">News</a>
+                                <a class="nav-link" href="index.php#news">News</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html#samples">Music</a>
+                                <a class="nav-link" href="index.php#samples">Music</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="bio.html">Bio</a>
@@ -46,7 +46,7 @@
                                 <a class="nav-link" href="tour.php">Tour</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.html">Contact</a>
+                                <a class="nav-link" href="contact.php">Contact</a>
                             </li>
                         </ul>
                     </div>
