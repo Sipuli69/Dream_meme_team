@@ -21,7 +21,7 @@
             <!--Navbar:-->
             <div id="navbar">
                 <nav class="navbar navbar-expand-sm navbar-dark">
-                    <a class="navbar-brand" href="index.html"><img src="images/BOO.png" alt="blanko"></a>
+                    <a class="navbar-brand" href="index.php"><img src="images/BOO.png" alt="blanko"></a>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -31,13 +31,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html#home">Home</a>
+                                <a class="nav-link" href="index.php#home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html#news">News</a>
+                                <a class="nav-link" href="index.php#news">News</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html#samples">Music</a>
+                                <a class="nav-link" href="index.php#samples">Music</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="bio.html">Bio</a>
@@ -111,6 +111,7 @@
                         &#160;&#160;&#160;&#160;&#160;
                         <input type="image" id="td" src="images/td.png" alt="Submit" OnClick="this.disabled=true;document.getElementById('tu').disabled=true;" width="13" heigth="20">
                     </div>
+
 <?php
 $yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
 if (!$yhteys) {
@@ -127,8 +128,10 @@ while ($result=mysqli_fetch_array($upv))
 {
 echo $result['countu'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 }
+$yhteys->close();
+?>
 
-
+<?php
 $yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
 if (!$yhteys) {
     die("Yhteyden muodostaminen epÃ¤onnistui: " . mysqli_connect_error());
@@ -137,37 +140,31 @@ $tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
 if (!$tietokanta) {
     die("Tietokannan valinta epÃ¤onnistui: " . mysqli_connect_error());
 }
-//lasketaan down votesit ja tulostetaan downvotet $downv.
+//lasketaan down votesit ja tallennetaan $downv.
 $downv=mysqli_query($yhteys, "select sum(down) as countd from annamaria20101_li");
 while ($resultd=mysqli_fetch_array($downv))
 {
 echo $resultd['countd'];
 }
+$yhteys->close();
 ?>
 
 
-                    <!-- scripti / lähetetään thumb.php:lle postina arvo peukkujen painalluksista.
-	                annetaan yläpeukulle value arvo "a-up" ja alapeukulle arvo "b-down".
-	                Näytetään painallusten määrä "thumu"- ja "thumd"-<p>.
-	                -->
+                    <!-- scripti / lähetetään thumb.php:lle postina peukkujen painallukset.
+	                annetaan yläpeukulle value "a-up" ja alapeukulle "b-down".
+	            -->
                     <script>
                         $(document).ready(function(){
                             $("#tu").click(function(){
                                 $.post("thumb.php",
                                     {
                                         value: "a-up"
-                                    },
-                                    function (data, status) {
-                                        $("#thumbu").html(data);
                                     });
                             });
                             $("#td").click(function(){
                                 $.post("thumbd.php",
                                     {
                                         value2: "b-down"
-                                    },
-                                    function (data, status) {
-                                        $("#thumbd").html(data);
                                     });
                             });
                         });
