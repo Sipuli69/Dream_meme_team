@@ -35,7 +35,7 @@
             <!--Navbar:-->
             <div id="navbar">
                 <nav class="navbar navbar-expand-sm navbar-dark">
-                    <a class="navbar-brand" href="index.html"><img src="images/BOO.png" alt="blanko"></a>
+                    <a class="navbar-brand" href="index.php"><img src="images/BOO.png" alt="blanko"></a>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -87,7 +87,7 @@
 
                     if ($tulos->num_rows > 0) { //jos on enemmän ku 0 riviä infoo
                         while ($row = $tulos->fetch_assoc()) { //niin kauan ku löytyy uusia tulostettavia rivejä, nii lista jatkuu
-			    print "<tr>";
+                            print "<tr>";
                             print "<td><b>" . date("d.m.Y", strtotime($row["pvmr"])) . "</b></td>"; //tulostaa päivämäärän dd.mm.yyyy muodossa
                             print "<td><b>" . $row["paikka"] . "</b></td>"; //tulostaa osoitteen
 
