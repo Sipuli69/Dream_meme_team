@@ -17,11 +17,6 @@ while ($result=mysqli_fetch_array($upv))
 echo $result['countu'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 }
 
-// session alku:
-session_start();
-
- 
-
 // tallennetaan valuet (a-up painallukset) $valueen.
 $value=$_POST["value"];
 
