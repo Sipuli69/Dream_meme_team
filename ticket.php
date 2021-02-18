@@ -3,7 +3,8 @@ $name=$_POST["name"];
 $address=$_POST["add"];
 $phone=$_POST["pnum"];
 $email=$_POST["email"];
-header('Location: tour.html'); //lataa aina saman sivun uusiksi
+$maara=$_POST["maara"];
+header('Location: tour.php');
 
 $yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
 
@@ -17,9 +18,9 @@ if (!$tietokanta) {
     die("Tietokannan valinta epäonnistui: " . mysqli_connect_error());
 }
 
-$sql="insert into dmt_tickets(nimi, osote, puhnmr, sposti) values(?, ?, ?, ?)";
+$sql="insert into dmt_tickets(nimi, osote, puhnmr, sposti, maara) values(?, ?, ?, ?, ?)";
 $stmt=mysqli_prepare($yhteys, $sql);
-mysqli_stmt_bind_param($stmt, "ssis", $name, $address, $phone, $email);
+mysqli_stmt_bind_param($stmt, "ssisi", $name, $address, $phone, $email, $maara);
 mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
 mysqli_close($yhteys);
