@@ -6,11 +6,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Toni Nurmi, Anna-Maria Palm, Oliver Parkkonen">
-    <meta name="description" content="B-O's artist site - new star and interesting lifestory. Many hit songs, tour etc. Women, bravely take contact!">
+    <meta name="description"
+        content="B-O's artist site - new star and interesting lifestory. Many hit songs, tour etc. Women, bravely take contact!">
     <title>BLANKo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
-    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'> 
+</script> 
 </head>
 
 <body>
@@ -21,7 +23,9 @@
                 <nav class="navbar navbar-expand-sm navbar-dark">
                     <a class="navbar-brand" href="index.php"><img src="images/BOO.png" alt="blanko"></a>
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -51,7 +55,8 @@
             <!--end-->
 
             <div class="main" id="home">
-                <img src="images/pic2.jpg" alt="oliveri" style="max-width: 100%; position: fixed; left: 0px; z-index:-5; padding-top: 60px; object-fit: cover;">
+                <img src="images/pic2.jpg" alt="oliveri"
+                    style="max-width: 100%; position: fixed; left: 0px; z-index:-5; padding-top: 60px; object-fit: cover;">
             </div>
 
             <div class="main" id="news"><br><br><br>
@@ -75,7 +80,8 @@
                     spare
                     time, what is his favourite color and who is his cocaine dealer etc. If you want to be a part of
                     this awesome book, let us know
-                    and contact us. Especially women, bravely take contact with form in the <a href="contact.html" target="_blank">contact-page!</a></p>
+                    and contact us. Especially women, bravely take contact with form in the <a href="contact.html"
+                        target="_blank">contact-page!</a></p>
 
                 <p>22/01/21<br>
                     Oliver is going to go to the Vantaa! Be aware!</p>
@@ -105,59 +111,60 @@
                         &#160;&#160;&#160;&#160;&#160;
                         <input type="image" id="td" src="images/td.png" alt="Submit" OnClick="this.disabled=true;document.getElementById('tu').disabled=true;" width="13" heigth="20">
                     </div>
-                    <?php
-                    $yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
-                    if (!$yhteys) {
-                        die("Yhteyden muodostaminen epÃ¤onnistui: " . mysqli_connect_error());
-                    }
-                    $tietokanta = mysqli_select_db($yhteys, "trtkp20a3");
-                    if (!$tietokanta) {
-                        die("Tietokannan valinta epÃ¤onnistui: " . mysqli_connect_error());
-                    }
-                    //lasketaan up-votesit ja tallennetaan ne $upv-muuttujaan.
 
-                    $upv = mysqli_query($yhteys, "select sum(up) as countu from annamaria20101_li");
-                    while ($result = mysqli_fetch_array($upv)) {
-                        echo $result['countu'] . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                    }
+<?php
+$yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
+if (!$yhteys) {
+    die("Yhteyden muodostaminen epÃ¤onnistui: " . mysqli_connect_error());
+}
+$tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
+if (!$tietokanta) {
+    die("Tietokannan valinta epÃ¤onnistui: " . mysqli_connect_error());
+}
+//lasketaan up-votesit ja tallennetaan ne $upv-muuttujaan.
+
+$upv=mysqli_query($yhteys, "select sum(up) as countu from annamaria20101_li");
+while ($result=mysqli_fetch_array($upv))
+{
+echo $result['countu'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+}
+$yhteys->close();
+?>
+
+<?php
+$yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
+if (!$yhteys) {
+    die("Yhteyden muodostaminen epÃ¤onnistui: " . mysqli_connect_error());
+}
+$tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
+if (!$tietokanta) {
+    die("Tietokannan valinta epÃ¤onnistui: " . mysqli_connect_error());
+}
+//lasketaan down votesit ja tallennetaan $downv.
+$downv=mysqli_query($yhteys, "select sum(down) as countd from annamaria20101_li");
+while ($resultd=mysqli_fetch_array($downv))
+{
+echo $resultd['countd'];
+}
+$yhteys->close();
+?>
 
 
-                    $yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
-                    if (!$yhteys) {
-                        die("Yhteyden muodostaminen epÃ¤onnistui: " . mysqli_connect_error());
-                    }
-                    $tietokanta = mysqli_select_db($yhteys, "trtkp20a3");
-                    if (!$tietokanta) {
-                        die("Tietokannan valinta epÃ¤onnistui: " . mysqli_connect_error());
-                    }
-                    //lasketaan down votesit ja tulostetaan downvotet $downv.
-                    $downv = mysqli_query($yhteys, "select sum(down) as countd from annamaria20101_li");
-                    while ($resultd = mysqli_fetch_array($downv)) {
-                        echo $resultd['countd'];
-                    }
-                    ?>
-
-
-                    <!-- scripti / lähetetään thumb.php:lle postina arvo peukkujen painalluksista.
-	                annetaan yläpeukulle value arvo "a-up" ja alapeukulle arvo "b-down".
-	                Näytetään painallusten määrä "thumu"- ja "thumd"-<p>.
-	                -->
+                    <!-- scripti / lähetetään thumb.php:lle postina peukkujen painallukset.
+	                annetaan yläpeukulle value "a-up" ja alapeukulle "b-down".
+	            -->
                     <script>
-                        $(document).ready(function() {
-                            $("#tu").click(function() {
-                                $.post("thumb.php", {
+                        $(document).ready(function(){
+                            $("#tu").click(function(){
+                                $.post("thumb.php",
+                                    {
                                         value: "a-up"
-                                    },
-                                    function(data, status) {
-                                        $("#thumbu").html(data);
                                     });
                             });
-                            $("#td").click(function() {
-                                $.post("thumbd.php", {
+                            $("#td").click(function(){
+                                $.post("thumbd.php",
+                                    {
                                         value2: "b-down"
-                                    },
-                                    function(data, status) {
-                                        $("#thumbd").html(data);
                                     });
                             });
                         });
@@ -166,14 +173,16 @@
             </div>
             <!--Footer-->
             <div class="footer">
-                <p>&copy; DreamMemeTeam</p>
+                <p><a href="dokumentti.docx" style="color:rgb(212, 210, 208);">&copy; DreamMemeTeam:<br> load the document about the project:</a></p>
             </div>
         </div>
 
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
 
 </body>
 
