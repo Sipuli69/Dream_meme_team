@@ -1,8 +1,5 @@
+
 <?php 
-if(isset($_POST['email']) && $_POST['email'] != ''){ // Tarkistaa ettÃ¤ sÃ¤hkÃ¶posti kenttÃ¤ ei ole tyhjÃ¤
-
-    if( filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ){ // SÃ¤hkÃ¶posti osoite on varmasti sÃ¤hkÃ¶posti
-
     $to = "oliverparkkonen@hotmail.com"; // Johon sÃ¤hkÃ¶posti lÃ¤hetetÃ¤Ã¤n
     $from = $_POST['email']; // LÃ¤hetÃ¤jÃ¤n sÃ¤hkÃ¶posti
     $phonenumber = $_POST['phonenumber'];
@@ -19,10 +16,6 @@ if(isset($_POST['email']) && $_POST['email'] != ''){ // Tarkistaa ettÃ¤ sÃ¤h
     $headers2 = "From:" . $to;
     mail($to,$subject,$message,$headers); // lÃ¤hettÃ¤Ã¤ vastaanottajalle
     mail($from,$subject2,$message2,$headers2); // lÃ¤hettÃ¤Ã¤ kopion lÃ¤hettÃ¤jÃ¤lle
-    
-    }
-	
-}
 ?>
 
 
@@ -69,5 +62,5 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
         }
     }
 
-header('Location: contact.html');
+
     ?>
