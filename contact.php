@@ -8,6 +8,30 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+      $(function () {
+
+        $('form').on('submit', function (e) {
+
+          e.preventDefault();
+
+          $.ajax({
+            type: 'post',
+            url: 'submit.php',
+            data: $('form').serialize(),
+            success: function () {
+              alert('Kiitos, viesti on lähetetty!');
+            }
+          });
+
+        });
+
+      });
+    </script>
+
 </head>
 
 
@@ -108,7 +132,7 @@
                         <input type="text" id="phonumber" name="phonenumber" placeholder="Your phone number..."><br>
 
                         <label for="email">Email:</label><br>
-                        <input type="text" id=email name="email" placeholder="Your email..."><br>
+                        <input type="email" id=email name="email" placeholder="Your email..." required><br>
 
                         <label for="country">Country:</label><br>
                         <select id="country" name="country">
@@ -121,7 +145,8 @@
                         <label for="fun">Check me if you are awesome!</label> <br>
                         <p><small><i>Wanna upload your picture?</i></small></p>
                         <input type="file" name="filetoupload" id="filetoupload">
-                        <input type="submit" name="submit" value="Submit"><br><br>
+                        <input type="submit" name="submit" value="Submit" onclick="showPopup()"><br><br>
+
                     </form>
 
                 </div>
