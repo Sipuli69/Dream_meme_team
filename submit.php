@@ -25,7 +25,7 @@ $target_file = $target_dir . basename($_FILES["filetoupload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-// Check if image file is a actual image or fake image
+// onko kuva kuva.
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["filetoupload"]["tmp_name"]);
     if($check !== false) {
@@ -37,13 +37,13 @@ if(isset($_POST["submit"])) {
     }
 }
 
-// Check if file already exists
+// onko kuva jo olemassa kohdekansiossa.
 if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
     $uploadOk = 0;
 }
 
-// Allow certain file formats
+// sallitut tiedostotyypit.
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
         echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
