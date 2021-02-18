@@ -62,5 +62,5 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
         }
     }
 
-
+header('Location: contact.php');
     ?>
