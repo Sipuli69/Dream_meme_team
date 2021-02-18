@@ -1,31 +1,3 @@
-<?php 
-if(isset($_POST['email']) && $_POST['email'] != ''){ // Tarkistaa ettÃ¤ sÃ¤hkÃ¶posti kenttÃ¤ ei ole tyhjÃ¤
-
-    if( filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ){ // SÃ¤hkÃ¶posti osoite on varmasti sÃ¤hkÃ¶posti
-
-    $to = "oliverparkkonen@hotmail.com"; // Johon sÃ¤hkÃ¶posti lÃ¤hetetÃ¤Ã¤n
-    $from = $_POST['email']; // LÃ¤hetÃ¤jÃ¤n sÃ¤hkÃ¶posti
-    $phonenumber = $_POST['phonenumber'];
-    $fname = $_POST['fname'];
-    $country = $_POST['country'];
-    $checkbox = $_POST['checkbox'];
-    $subject = "Form submission";
-    $subject2 = "Copy of your form submission";
-
-    $message =  "Name:". " " . $fname . "\n" . "Country:" . " " . $country . "\n" . "Phone:" . " " . $phonenumber .  "\n" . "Are you awesome?:" . " " . $checkbox . "\n\n" . $_POST['message'];
-    $message2 = "Here is a copy of your message" . "\n" . "Name:". " " . $fname . "\n" . "Country:". " " . $country . "\n" . "Phone:" . " " . $phonenumber . "\n" . "Are you awesome?:" . " " . $checkbox . "\n\n" . $_POST['message'];
-
-    $headers = "From:" . $from;
-    $headers2 = "From:" . $to;
-    mail($to,$subject,$message,$headers); // lÃ¤hettÃ¤Ã¤ vastaanottajalle
-    mail($from,$subject2,$message2,$headers2); // lÃ¤hettÃ¤Ã¤ kopion lÃ¤hettÃ¤jÃ¤lle
-    
-    }
-	
-}
-?>
-
-
 <?php
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["filetoupload"]["name"]);
@@ -49,6 +21,12 @@ if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
     $uploadOk = 0;
 }
+
+// Check file size
+//if ($_FILES["fileToUpload"]["size"] > 500000) {
+//    echo "Sorry, your file is too large.";
+//    $uploadOk = 0;
+//}
 
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
