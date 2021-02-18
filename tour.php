@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
     <link rel='stylesheet' type='text/php' media='screen' href='/tour.php'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         function showPopup() {
             document.getElementById('blackOverlay').style.display = 'block'; // lightbox
@@ -20,13 +20,13 @@
             document.getElementById('blackOverlay').style.display = 'none';
             document.getElementById('popup').style.display = 'none';
         }
-    </script>     
-<script type="text/javascript">
-    // Check if the page has loaded completely                                         
-    $(document).ready( function() { 
-        $('#some_id').load('php-file.php'); 
-    }); 
-</script> 
+    </script>
+    <script type="text/javascript">
+        // Check if the page has loaded completely                                         
+        $(document).ready(function() {
+            $('#some_id').load('php-file.php');
+        });
+    </script>
 </head>
 
 <body id="tourpage">
@@ -70,71 +70,63 @@
             <div class="main" id="tour">
                 <h2 style="padding-top:50px;">TOUR</h2>
                 <br>
-	<table class="tabl" style="width:100%">
-    <!-- PHP ALKAA !-->
-	<?php
-header('Content-type: text/html; charset=utf-8'); 
+                <table class="tabl" style="width:100%">
+                    <!-- PHP ALKAA !-->
+                    <?php
+                    header('Content-type: text/html; charset=utf-8');
 
+                    $yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd", "trtkp20a3"); //muodostaa yhteyden annetuilla tiedoilla
+                    if ($yhteys->connect_error) { //tarkistaa yhteyden
+                        die("Connection failed: " . $yhteys->connect_error); //jos ei ole yhteyttä
+                    }
 
-            $yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd", "trtkp20a3"); //muodostaa yhteyden annetuilla tiedoilla
-            if ($yhteys->connect_error) { //tarkistaa yhteyden
-                die("Connection failed: " . $yhteys->connect_error); //jos ei ole yhteyttä
-            }
+                    mysqli_set_charset($yhteys, "utf8mb4"); //ääkköset
 
-	    mysqli_set_charset($yhteys, "utf8mb4"); //tein kaikkeni saadakseni ääkköset ja öökköset toimiin
-	    mysqli_query($yhteys, "SET SESSION CHARACTER_SET_RESULTS =utf8mb4;");
-	    mysqli_query($yhteys, "SET SESSION CHARACTER_SET_CLIENT =utf8mb4;");
-	    mysqli_query($yhteys, "SET NAMES 'utf8mb4';");
+                    $sql = "select * from dmt_gigs order by pvmr desc"; //mitä tulostetaan ja mistä tablesta ja missä järjestyksessä
+                    $tulos = $yhteys->query($sql);
 
-	    mysqli_query($yhteys,
-	    "SET character_set_results = 'utf8',
-	    character_set_client = 'utf8',
-	    character_set_connection = 'utf8',
-	    character_set_database = 'utf8',
-	    character_set_server = 'utf8';"); //kaikkeni loppuu tähän
+                    if ($tulos->num_rows > 0) { //jos on enemmän ku 0 riviä infoo
+                        while ($row = $tulos->fetch_assoc()) { //niin kauan ku löytyy uusia tulostettavia rivejä, nii lista jatkuu
+			    print "<tr>";
+                            print "<td><b>" . date("d.m.Y", strtotime($row["pvmr"])) . "</b></td>"; //tulostaa päivämäärän dd.mm.yyyy muodossa
+                            print "<td><b>" . $row["paikka"] . "</b></td>"; //tulostaa osoitteen
 
-            $sql = "select * from dmt_gigs order by pvmr desc"; //mitä tulostetaan ja mistä tablesta ja missä järjestyksessä
-            $tulos = $yhteys-> query($sql);
+                            if (date("Y-m-d") > $row["pvmr"]) { //onko päivämäärä mennyt jo?
+                                print "<th><button class=ticket_button disabled>Tickets</button></th>"; //disabled nappi
+                            } else {
+                                print "<th><button class=ticket_button onclick=showPopup()>Tickets</button></th>"; //toimiva nappi joka kutsuu lightboxia
+                                print "<div id='blackOverlay' class='blackOverlay'></div>";
+                                print "<div id='popup' class='popup'>";
+                                print "<span class='closePopup' onclick='closePopup()'>X</span>"; //lightboxin sulkunappi
+                                print "<h2 style='padding-top: 30px;'>Submit your information:</h2>";
+                                print "<form method='POST' action='ticket.php'>";
+                                print "<label for='name'>Name:</label><br>";
+                                print "<input type='text' name='name' value='' placeholder='Your name...' required><br>";
+                                print "<label for='add'>Address:</label><br>";
+                                print "<input type='text' name='add' value='' placeholder='Your address...' required><br>";
+                                print "<label for='pnum'>Phone number:</label><br>";
+                                print "<input type='text' name='pnum' value='' placeholder='Your phone number...' required><br>";
+                                print "<label for='email'>Email:</label><br>";
+                                print "<input type='text' name='email' value='' placeholder='Your email...' required><br>";
+                                print "<label for='maara'>Amount of tickets:</label><br>";
+                                print "<input type='number' name='maara' min='1' value='1' onKeyDown='return false' required><br>";
+                                print "<br><br>";
+                                print "<input type='checkbox' id='terms' name='terms' value='terms' required>";
+                                print "<label for='terms'>Agree to <a id='terms' href='https://en.wikipedia.org/wiki/Terms_of_service' target='_blank'>terms and conditions</a>.</label> <br><br>";
+                                print "<input type='submit' value='Buy a ticket.'>";
+                                print "</form>";
+                                print "</div>";
+                            }
+                            print "</tr>";
+                        }
+                        print "</table>";
+                    } else {
+                        print "No gigs!"; //jos ei ole yhtään keikkoja
+                    }
 
-            if ($tulos->num_rows > 0) { //jos on enemmän ku 0 riviä infoo
-                while ($row = $tulos-> fetch_assoc()) { //niin kauan ku löytyy uusia tulostettavia rivejä
-                    print "<tr>";
-                    print "<td><b>". date("d.m.Y", strtotime($row["pvmr"])) ."</b></td>"; //tulostaa päivämäärän dd.mm.yyyy muodossa
-		    print "<td><b>". $row["paikka"] ."</b></td>";
+                    $yhteys->close();
+                    ?>
 
-		    if (date("Y-m-d") > $row["pvmr"]) { //onko päivämäärä mennyt jo?
-			print "<th><button class=ticket_button disabled>Tickets</button></th>"; //disabled nappi
-		    } else {
-			print "<th><button class=ticket_button onclick=showPopup()>Tickets</button></th>"; //toimiva nappi joka kutsuu lightboxia
-		    }
-		    print "</tr>";
-		    }
-		echo "</table>";
-             } else {
-                echo "No gigs!"; //jos ei ole yhtään keikkoja
-           }
-
-            $yhteys->close();
-            ?>
-                        <div id="blackOverlay" class="blackOverlay"></div> <!-- pomppaa lightboxina esiin nappia painaessa !-->
-                        <div id="popup" class="popup">
-                            <span class="closePopup" onclick="closePopup()">X</span>
-                            <h2 style="padding-top: 30px;">Submit your information:</h2>
-                            <form method="POST" action="ticket.php">
-                                <label for="name">Name:</label><br>
-                                <input type="text" name="name" value="" placeholder="Your name..." required><br>
-                                <label for="add">Address:</label><br>
-                                <input type="text" name="add" value="" placeholder="Your address..." required><br>
-                                <label for="pnumber">Phone number:</label><br>
-                                <input type="text" name="pnum" value="" placeholder="Your phone number..." required><br>
-                                <label for="email">Email:</label><br>
-                                <input type="text" name="email" value="" placeholder="Your email..." required><br>
-                                <br><br>
-                                <input type="checkbox" id="terms" name="terms" value="terms" required>
-                                <label for="terms">Agree to <a id="terms" href="https://en.wikipedia.org/wiki/Terms_of_service" target="_blank">terms and conditions</a>.</label> <br><br>
-                                <input type="submit" value="Buy a ticket.">
-                            </form>
-                        </div>
             </div>
             <div class="footer">
                 <p>&copy; DreamMemeTeam</p>
@@ -146,5 +138,3 @@ header('Content-type: text/html; charset=utf-8');
 </body>
 
 </html>
-
-
