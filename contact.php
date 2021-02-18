@@ -151,7 +151,7 @@
 
                 </div>
                 <div class="footer">
-                    <p>&copy; DreamMemeTeam</p>
+                <p><a href="dokumentti.docx" style="color:rgb(212, 210, 208);">&copy; DreamMemeTeam:<br> load the document about the project:</a></p>
                 </div>
             </div>
 
