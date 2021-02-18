@@ -11,12 +11,11 @@
     <title>BLANKo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'> 
+</script> 
 </head>
 
 <body>
-
-
     <div class="container">
         <div class="row">
             <!--Navbar:-->
@@ -32,13 +31,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php#home">Home</a>
+                                <a class="nav-link" href="index.html#home">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php#news">News</a>
+                                <a class="nav-link" href="index.html#news">News</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php#samples">Music</a>
+                                <a class="nav-link" href="index.html#samples">Music</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="bio.html">Bio</a>
@@ -109,18 +108,43 @@
                     <div id="wrapperDiv">
                         <!--  peukut: -->
                         <input type="image" id="tu" src="images/tu.png" alt="Submit" OnClick="this.disabled=true;document.getElementById('td').disabled=true;" width="13" heigth="20">
-                        &#160;&#160;
+                        &#160;&#160;&#160;&#160;&#160;
                         <input type="image" id="td" src="images/td.png" alt="Submit" OnClick="this.disabled=true;document.getElementById('tu').disabled=true;" width="13" heigth="20">
                     </div>
+<?php
+$yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
+if (!$yhteys) {
+    die("Yhteyden muodostaminen epÃ¤onnistui: " . mysqli_connect_error());
+}
+$tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
+if (!$tietokanta) {
+    die("Tietokannan valinta epÃ¤onnistui: " . mysqli_connect_error());
+}
+//lasketaan up-votesit ja tallennetaan ne $upv-muuttujaan.
+
+$upv=mysqli_query($yhteys, "select sum(up) as countu from annamaria20101_li");
+while ($result=mysqli_fetch_array($upv))
+{
+echo $result['countu'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+}
 
 
-                    <!-- Näihin alla oleviin diveihin tulee peukkujen painallusten määrät näkyviin. -->
-                    <div id="wrapperDiv">
-                        <div id='thumbu' style="font-size:12px;float:left"></div>
-                        <div id='thumbd' style="font-size:12px;float:left"></div>
-                    </div>
+$yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
+if (!$yhteys) {
+    die("Yhteyden muodostaminen epÃ¤onnistui: " . mysqli_connect_error());
+}
+$tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
+if (!$tietokanta) {
+    die("Tietokannan valinta epÃ¤onnistui: " . mysqli_connect_error());
+}
+//lasketaan down votesit ja tulostetaan downvotet $downv.
+$downv=mysqli_query($yhteys, "select sum(down) as countd from annamaria20101_li");
+while ($resultd=mysqli_fetch_array($downv))
+{
+echo $resultd['countd'];
+}
+?>
 
-	
 
                     <!-- scripti / lähetetään thumb.php:lle postina arvo peukkujen painalluksista.
 	                annetaan yläpeukulle value arvo "a-up" ja alapeukulle arvo "b-down".
@@ -134,7 +158,7 @@
                                         value: "a-up"
                                     },
                                     function (data, status) {
-                                        $("").html(data);
+                                        $("#thumbu").html(data);
                                     });
                             });
                             $("#td").click(function(){
@@ -143,7 +167,7 @@
                                         value2: "b-down"
                                     },
                                     function (data, status) {
-                                        $("").html(data);
+                                        $("#thumbd").html(data);
                                     });
                             });
                         });

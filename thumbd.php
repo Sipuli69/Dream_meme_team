@@ -1,7 +1,4 @@
 <?php
-// session alku:
-session_start();
-
 $yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
 if (!$yhteys) {
     die("Yhteyden muodostaminen epÃ¤onnistui: " . mysqli_connect_error());
@@ -16,6 +13,10 @@ while ($resultd=mysqli_fetch_array($downv))
 {
 echo $resultd['countd'];
 }
+
+// session alku:
+session_start();
+
 
 // tallennetaan valuet (b-down painallukset) $value2:een.
 $value2=$_POST["value2"];
