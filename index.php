@@ -105,59 +105,55 @@
                         &#160;&#160;&#160;&#160;&#160;
                         <input type="image" id="td" src="images/td.png" alt="Submit" OnClick="this.disabled=true;document.getElementById('tu').disabled=true;" width="13" heigth="20">
                     </div>
-                    <?php
-                    $yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
-                    if (!$yhteys) {
-                        die("Yhteyden muodostaminen epÃ¤onnistui: " . mysqli_connect_error());
-                    }
-                    $tietokanta = mysqli_select_db($yhteys, "trtkp20a3");
-                    if (!$tietokanta) {
-                        die("Tietokannan valinta epÃ¤onnistui: " . mysqli_connect_error());
-                    }
-                    //lasketaan up-votesit ja tallennetaan ne $upv-muuttujaan.
+<?php
+$yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
+if (!$yhteys) {
+    die("Yhteyden muodostaminen epÃ¤onnistui: " . mysqli_connect_error());
+}
+$tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
+if (!$tietokanta) {
+    die("Tietokannan valinta epÃ¤onnistui: " . mysqli_connect_error());
+}
+//lasketaan up-votesit ja tallennetaan ne $upv-muuttujaan.
 
-                    $upv = mysqli_query($yhteys, "select sum(up) as countu from annamaria20101_li");
-                    while ($result = mysqli_fetch_array($upv)) {
-                        echo $result['countu'] . '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-                    }
+$upv=mysqli_query($yhteys, "select sum(up) as countu from annamaria20101_li");
+while ($result=mysqli_fetch_array($upv))
+{
+echo $result['countu'].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+}
+$yhteys->close();
+?>
 
-
-                    $yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
-                    if (!$yhteys) {
-                        die("Yhteyden muodostaminen epÃ¤onnistui: " . mysqli_connect_error());
-                    }
-                    $tietokanta = mysqli_select_db($yhteys, "trtkp20a3");
-                    if (!$tietokanta) {
-                        die("Tietokannan valinta epÃ¤onnistui: " . mysqli_connect_error());
-                    }
-                    //lasketaan down votesit ja tulostetaan downvotet $downv.
-                    $downv = mysqli_query($yhteys, "select sum(down) as countd from annamaria20101_li");
-                    while ($resultd = mysqli_fetch_array($downv)) {
-                        echo $resultd['countd'];
-                    }
-                    ?>
-
-
-                    <!-- scripti / lähetetään thumb.php:lle postina arvo peukkujen painalluksista.
-	                annetaan yläpeukulle value arvo "a-up" ja alapeukulle arvo "b-down".
-	                Näytetään painallusten määrä "thumu"- ja "thumd"-<p>.
-	                -->
+<?php
+$yhteys = mysqli_connect("localhost", "trtkp20a3", "trtkp20a3passwd");
+if (!$yhteys) {
+    die("Yhteyden muodostaminen epÃ¤onnistui: " . mysqli_connect_error());
+}
+$tietokanta=mysqli_select_db($yhteys, "trtkp20a3");
+if (!$tietokanta) {
+    die("Tietokannan valinta epÃ¤onnistui: " . mysqli_connect_error());
+}
+//lasketaan down votesit ja tallennetaan $downv.
+$downv=mysqli_query($yhteys, "select sum(down) as countd from annamaria20101_li");
+while ($resultd=mysqli_fetch_array($downv))
+{
+echo $resultd['countd'];
+}
+$yhteys->close();
+?>
+                    <!-- scripti / lähetetään thumb.php:lle postina peukkujen painallukset.
+	                annetaan yläpeukulle value "a-up" ja alapeukulle "b-down".
+	            -->
                     <script>
                         $(document).ready(function() {
                             $("#tu").click(function() {
                                 $.post("thumb.php", {
                                         value: "a-up"
-                                    },
-                                    function(data, status) {
-                                        $("#thumbu").html(data);
                                     });
                             });
                             $("#td").click(function() {
                                 $.post("thumbd.php", {
                                         value2: "b-down"
-                                    },
-                                    function(data, status) {
-                                        $("#thumbd").html(data);
                                     });
                             });
                         });
