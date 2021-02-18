@@ -1,10 +1,7 @@
+
 <?php 
-if(isset($_POST['email']) && $_POST['email'] != ''){ // Tarkistaa että sähköposti kenttä ei ole tyhjä
-
-    if( filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ){ // Sähköposti osoite on varmasti sähköposti
-
-    $to = "oliverparkkonen@hotmail.com"; // Johon sähköposti lähetetään
-    $from = $_POST['email']; // Lähetäjän sähköposti
+    $to = "oliverparkkonen@hotmail.com"; // Johon sÃ¤hkÃ¶posti lÃ¤hetetÃ¤Ã¤n
+    $from = $_POST['email']; // LÃ¤hetÃ¤jÃ¤n sÃ¤hkÃ¶posti
     $phonenumber = $_POST['phonenumber'];
     $fname = $_POST['fname'];
     $country = $_POST['country'];
@@ -17,11 +14,53 @@ if(isset($_POST['email']) && $_POST['email'] != ''){ // Tarkistaa että sähköp
 
     $headers = "From:" . $from;
     $headers2 = "From:" . $to;
-    mail($to,$subject,$message,$headers); // lähettää vastaanottajalle
-    mail($from,$subject2,$message2,$headers2); // lähettää kopion lähettäjälle
-    
-    }
-	header('Location: contact.html');
-}
+    mail($to,$subject,$message,$headers); // lÃ¤hettÃ¤Ã¤ vastaanottajalle
+    mail($from,$subject2,$message2,$headers2); // lÃ¤hettÃ¤Ã¤ kopion lÃ¤hettÃ¤jÃ¤lle
 ?>
 
+
+<?php
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["filetoupload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+// onko kuva kuva.
+if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["filetoupload"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+}
+
+// onko kuva jo olemassa kohdekansiossa.
+if (file_exists($target_file)) {
+    echo "Sorry, file already exists.";
+    $uploadOk = 0;
+}
+
+// sallitut tiedostotyypit.
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    && $imageFileType != "gif" ) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+    
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+        // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["filetoupload"]["tmp_name"], $target_file)) {
+            echo "The file ". htmlspecialchars( basename( $_FILES["filetoupload"]["name"])). " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+
+
+    ?>
